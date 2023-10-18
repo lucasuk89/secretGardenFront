@@ -1,0 +1,131 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 40px auto; /* Adiciona margem na parte superior e centraliza o container */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Cor de fundo mais clara */
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+  }
+  
+  .dashboard-container h1 {
+    font-size: 28px; /* Tamanho maior */
+    margin-bottom: 30px; /* Espaçamento adicional na parte inferior */
+    color: #007bff; /* Cor do título */
+  }
+  
+  .dashboard-container input[type="text"],
+  .dashboard-container input[type="file"],
+  .dashboard-container textarea {
+    width: 100%;
+    margin-bottom: 20px; /* Espaçamento adicional na parte inferior */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    outline: none; /* Remove a borda ao clicar nos campos de entrada */
+  }
+  
+  .dashboard-container button {
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.2s; /* Adiciona uma transição suave ao fundo do botão */
+  }
+  
+  .dashboard-container button:hover {
+    background-color: #1e7e34; /* Altera a cor de fundo ao passar o mouse */
+  }
+  
+  .dashboard-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .dashboard-container li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px; /* Espaçamento adicional na parte inferior de cada item */
+  }
+  
+  .dashboard-container span {
+    flex: 1;
+    font-weight: bold;
+    word-wrap: break-word;
+  }
+  
+  .dashboard-container img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .dashboard-container p {
+    flex: 3;
+    text-align: left;
+    margin-top: 0;
+    color: #333; /* Cor do texto mais escura */
+  }
+  
+  /* Estiliza os botões "Editar" e "Deletar" */
+  .dashboard-container .edit-button {
+    background-color: #ffc107; /* Amarelo */
+  }
+  
+  .dashboard-container .delete-button {
+    background-color: #dc3545; /* Vermelho */
+    margin-left: 10px;
+  }
+  
+  .dashboard-container .edit-button:hover,
+  .dashboard-container .delete-button:hover {
+    filter: brightness(0.8); /* Reduz o brilho ao passar o mouse */
+  }
+  
+
+
+  .dashboard-container li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px; /* Espaçamento adicional na parte inferior de cada item */
+  }
+  
+  .dashboard-container .item-container {
+    flex: 1; /* Faz com que o contêiner ocupe uma parte igual do espaço disponível */
+    max-width: 200px; /* Define a largura máxima para o contêiner */
+  }
+  
+  .dashboard-container img {
+    max-width: 100px;
+    max-height: 150px; /* Ajuste a altura máxima desejada */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .dashboard-container p {
+    white-space: normal; /* Permite que o texto quebre automaticamente para a próxima linha */
+    word-wrap: break-word; /* Quebra as palavras que não cabem na largura do elemento */
+    overflow: hidden; /* Esconde qualquer conteúdo que exceda o tamanho do <li> */
+    color: #333; /* Cor do texto mais escura */
+  }
+  
+
+  .dashboardBackground {
+    position: fixed; /* Torna a imagem fixa na tela */
+    top: 0;
+    left: 0;
+    width: 100%; /* Largura de 100% da tela */
+    height: 100%; /* Altura de 100% da tela */
+  /* Coloca a imagem atrás do conteúdo */
+  }
+  
