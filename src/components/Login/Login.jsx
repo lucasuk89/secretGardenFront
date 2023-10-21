@@ -36,6 +36,10 @@ function Login() {
       alert("Login successfully completed");
       setIsLoggedIn(true); // Define o estado como logado
       navigate("/dashboard");
+
+
+
+      
     }).catch(err => {
       if (err.response.status === 401) {
         alert("Incorrect email or password");

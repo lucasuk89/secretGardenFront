@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import './Dashboard.css';
-import backgroundGif from '../../../public/images/dashboardgif.gif';
+
 
 function Dashboard() {
   const backgroundStyle = {
@@ -12,16 +12,16 @@ function Dashboard() {
 
   const [items, setItems] = useState([]);
   const [itemName, setItemName] = useState('');
-  const [itemImage, setItemImage] = useState(null);
+  const [itemAuthor, setItemAuthor] = useState('');
   const [itemDescription, setItemDescription] = useState('');
   const [editIndex, setEditIndex] = useState(null);
 
   const handleAddItem = () => {
-    if (itemName && itemImage) {
-      const newItem = { name: itemName, image: itemImage, description: itemDescription };
+    if (itemName && itemAuthor) {
+      const newItem = { name: itemName, author: itemAuthor, description: itemDescription };
       setItems([...items, newItem]);
       setItemName('');
-      setItemImage(null);
+      setItemAuthor('');
       setItemDescription('');
   
       // Enviar os dados do novo item para o servidor
@@ -39,10 +39,10 @@ function Dashboard() {
   const handleEditItem = () => {
     if (editIndex !== null) {
       const updatedItems = [...items];
-      updatedItems[editIndex] = { name: itemName, image: itemImage, description: itemDescription };
+      updatedItems[editIndex] = { name: itemName, author: itemAuthor, description: itemDescription };
       setItems(updatedItems);
       setItemName('');
-      setItemImage(null);
+      setItemAuthor('');
       setItemDescription('');
       setEditIndex(null);
     }
@@ -53,7 +53,7 @@ function Dashboard() {
       const updatedItems = items.filter((_, i) => i !== editIndex);
       setItems(updatedItems);
       setItemName('');
-      setItemImage(null);
+      setItemAuthor('');
       setItemDescription('');
       setEditIndex(null);
     }
@@ -62,45 +62,55 @@ function Dashboard() {
   const selectItem = (index) => {
     setEditIndex(index);
     setItemName(items[index].name);
-    setItemImage(items[index].image);
+    setItemAuthor(items[index].author);
     setItemDescription(items[index].description);
   };
 
   return (
     <div className="dashboardBackground" style={backgroundStyle}>
-      <div className="dashboard-container" style={{ backgroundImage: `url(${backgroundGif})` }}>
+      <div className="dashboard-container">
         <div className="dashboard-container">
-          <h1>Dashboard</h1>
+          <h1>Your Books</h1>
+          <h4>Insert the Book name</h4>
           <input
             type="text"
-            placeholder="Add Name"
+            placeholder="Add a book name"
             value={itemName}
             onChange={(e) => setItemName(e.target.value)}
           />
+          <h4>Insert the Author name</h4>
           <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setItemImage(e.target.files[0])}
-          />
+          type="text"
+          placeholder="Add a book name"
+          value={itemAuthor}
+          onChange={(e) => setItemAuthor(e.target.value)}
+        />
+        <h4>Write a description of the book</h4>
           <textarea
-            placeholder="Add Description"
-            value={itemDescription}
-            onChange={(e) => setItemDescription(e.target.value)}
-          />
+             placeholder="Add Description about the book"
+             value={itemDescription}
+             onChange={(e) => {
+              if (e.target.value.length <= 255) {
+      setItemDescription(e.target.value);
+    }
+  }}
+/>
+
           {editIndex === null ? (
             <button onClick={handleAddItem}>Add</button>
           ) : (
             <>
               <button onClick={handleEditItem}>Edit</button>
               <button onClick={handleDeleteItem}>Delete</button>
+              <button onClick={handleAddItem}>Add</button>
             </>
           )}
 
           <ul>
             {items.map((item, index) => (
-              <li key={index} onClick={() => selectItem(index)}>
+              <li key={index} onClick={() => selectItem(index)}>  
                 <span>{item.name}</span>
-                <img src={URL.createObjectURL(item.image)} alt={item.name} />
+                <span>{item.author}</span>
                 <p>{item.description}</p>
               </li>
             ))}

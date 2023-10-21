@@ -7,7 +7,6 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9; /* Cor de fundo mais clara */
-    text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
   }
   
@@ -122,10 +121,13 @@
 
   .dashboardBackground {
     position: fixed; /* Torna a imagem fixa na tela */
-    top: 0;
     left: 0;
     width: 100%; /* Largura de 100% da tela */
     height: 100%; /* Altura de 100% da tela */
   /* Coloca a imagem atrás do conteúdo */
   }
   
+  .h1{
+    display: flex;
+    text-align: center;
+  } 
