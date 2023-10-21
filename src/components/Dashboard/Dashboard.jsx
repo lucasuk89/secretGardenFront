@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import axios from 'axios';
+import { useState } from 'react';
 import './Dashboard.css';
 
 
@@ -17,8 +17,8 @@ function Dashboard() {
   const [editIndex, setEditIndex] = useState(null);
 
   const handleAddItem = () => {
-    if (itemName && itemAuthor) {
-      const newItem = { name: itemName, author: itemAuthor, description: itemDescription };
+    if (itemName && itemAuthor && itemDescription) {
+      const newItem = { name: itemName, author: itemAuthor, description: itemDescription, user_id:  localStorage.getItem("userId")};
       setItems([...items, newItem]);
       setItemName('');
       setItemAuthor('');

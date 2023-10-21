@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
+import { Link, Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
 import Home from './components/Home/Home';
-import './styles.css';  
-import { Navigate } from 'react-router-dom';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import './styles.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

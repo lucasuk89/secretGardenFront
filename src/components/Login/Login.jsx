@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import axios from "axios";
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 
 function Login() {
@@ -32,8 +32,12 @@ function Login() {
     axios.post("http://localhost:3000/api/login", {
       email: formData.email,
       password: formData.password
-    }).then(() => {
-      alert("Login successfully completed");
+    }).then((result) => {
+      localStorage.setItem("usuario", JSON.stringify(result.data.usuario));
+      localStorage.setItem("userId", JSON.stringify(result.data.usuario.userId));
+      localStorage.setItem("isLoggedIn", true);
+
+      //alert("Login successfully completed");
       setIsLoggedIn(true); // Define o estado como logado
       navigate("/dashboard");
 
