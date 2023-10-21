@@ -33,8 +33,7 @@ function Login() {
       email: formData.email,
       password: formData.password
     }).then((result) => {
-      localStorage.setItem("usuario", JSON.stringify(result.data.usuario));
-      localStorage.setItem("userId", JSON.stringify(result.data.usuario.userId));
+      localStorage.setItem("user", JSON.stringify(result.data.user));
       localStorage.setItem("isLoggedIn", true);
 
       //alert("Login successfully completed");
@@ -54,6 +53,7 @@ function Login() {
   function handleLogout() {
     // Redirecione o usuário de volta para a tela de login
     setIsLoggedIn(false); //Aqui eu to colocando o usuario como deslogado
+    localStorage.clear();
     navigate("api/login");
   }
 

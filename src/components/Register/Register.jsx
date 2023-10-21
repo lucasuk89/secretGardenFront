@@ -1,5 +1,5 @@
-import {useState} from 'react';
 import axios from 'axios';
+import { useState } from 'react';
 import styles from './Register.module.css';
 
 
@@ -44,8 +44,8 @@ function handleChange(e){
 function handleSubmit(e){
    e.preventDefault();
    axios.post('http://localhost:3000/api/register',
-   { name:formData.name,
-    email:formData.email,
+   { name:formData.name.trim(),
+    email:formData.email.trim(),
     password:formData.password}).then(res=>{
         if(res.data.status == "1"){
             alert("Existing user, try another email");
