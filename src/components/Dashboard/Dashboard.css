@@ -1,19 +1,23 @@
 /* Dashboard.css */
 
 .dashboard-container {
-    max-width: 800px;
-    margin: 40px auto; /* Adiciona margem na parte superior e centraliza o container */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9; /* Cor de fundo mais clara */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
-  }
+  max-width: 800px;
+  max-height: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9d8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+}
+
   
   .dashboard-container h1 {
     font-size: 28px; /* Tamanho maior */
     margin-bottom: 30px; /* Espaçamento adicional na parte inferior */
     color: #007bff; /* Cor do título */
+    
   }
   
   .dashboard-container input[type="text"],
@@ -47,12 +51,14 @@
   .dashboard-container ul {
     list-style: none;
     padding: 0;
+    
   }
   
   .dashboard-container li {
     display: flex;
     align-items: center;
-    margin-bottom: 30px; /* Espaçamento adicional na parte inferior de cada item */
+    margin-bottom: 30px; 
+    /* Espaçamento adicional na parte inferior de cada item */
   }
   
   .dashboard-container span {
@@ -60,14 +66,7 @@
     font-weight: bold;
     word-wrap: break-word;
   }
-  
-  .dashboard-container img {
-    max-width: 100px;
-    max-height: 100px;
-    margin-right: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
+
   
   .dashboard-container p {
     flex: 3;
@@ -104,12 +103,6 @@
     max-width: 200px; /* Define a largura máxima para o contêiner */
   }
   
-  .dashboard-container img {
-    max-width: 100px;
-    max-height: 150px; /* Ajuste a altura máxima desejada */
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
   
   .dashboard-container p {
     white-space: normal; /* Permite que o texto quebre automaticamente para a próxima linha */
@@ -124,7 +117,6 @@
     left: 0;
     width: 100%; /* Largura de 100% da tela */
     height: 100%; /* Altura de 100% da tela */
-  /* Coloca a imagem atrás do conteúdo */
   }
   
   .h1{
