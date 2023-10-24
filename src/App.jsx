@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavDropdown } from 'react-bootstrap';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -9,14 +9,22 @@ import './styles.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-
+    localStorage.clear();
+    setUser(null);
   };
 
-  let user = JSON.parse(localStorage.getItem('user'))
-  
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   return (
     <div>
       <Router>
@@ -26,20 +34,20 @@ function App() {
             <li><Link to="/register">Register</Link></li>
             {isLoggedIn ? (
               <>
+                {user && user.name && <li className="user-dropdown">
+                  <NavDropdown title={`Welcome, ${user.name}`}>
+                    <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+                  </NavDropdown>
+                </li>}
                 <li><Link to="/dashboard">Dashboard</Link></li>
                 <li onClick={handleLogout}><Link to="/login">Logout</Link></li>
-            
               </>
             ) : (
               <li><Link to="/login">Sign in</Link></li>
             )}
-            <li className="user-dropdown">
-            <NavDropdown title={`Welcome, ${user && user.name}`}>
-                <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
-              </NavDropdown>
-            </li>
           </ul>
         </nav>
+
         <div>
           <div className='secretgardenTitle'>
             <h1 className='welcomeTitle'>Welcome to the Secret Garden</h1>
@@ -60,8 +68,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
         </Routes>
       </Router>
     </div>
