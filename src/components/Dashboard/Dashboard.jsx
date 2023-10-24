@@ -4,7 +4,7 @@ import './Dashboard.css';
 
 function Dashboard() {
   const backgroundStyle = {
-    backgroundImage: 'url("../../../public/images/thesecretgarden.png")',
+    backgroundImage: 'url("../../../public/leafs.png")',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
   };

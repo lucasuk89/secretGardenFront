@@ -5,7 +5,7 @@ import styles from './Login.module.css';
 
 function Login() {
   const backgroundStyle = {
-    backgroundImage: 'url("/images/homeImage.png")',
+    backgroundImage: 'url("../../../public/leafs.png")',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
   };
@@ -76,7 +76,31 @@ function Login() {
             <button onClick={handleLogout}>Logout</button>
           </div>
         ) : null}
+
       </div>
+      <footer className="footer registerBackground">
+        <div className="footer-section homeBackgroundRed">
+          <div className="section-content">
+            <h2>Make your Register</h2>
+            <p>To create your account</p>
+          </div>
+        </div>
+
+        <div className="footer-section homeBackgroundBlue">
+          <div className="section-content ">
+            <h3>Make your Login</h3>
+            <p>You will have your user with your datas.</p>
+          </div>
+          
+        </div>
+
+        <div className="footer-section homeBackgroundYellow">
+          <div className="section-content">
+            <h3>Save Your Books</h3>
+            <p>Names, Authors and Make a comment...</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

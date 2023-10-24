@@ -1,20 +1,33 @@
-/* styles.css */
-/* Estilo para a barra de navegação */
-
 html, body {
   height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
-  display:flexbox ;
+  overflow-y: auto;
+  background-color: #efd0c2a5; /* Adicione uma barra de rolagem vertical se necessário */
 }
+
+   
+  .content-section {
+    text-align: center;
+  }
+  
+  .content-section h2 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .content-section p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+ 
 
 
 nav {
     background-color: #333;
     color: white;
-    padding: 10px;
+    padding: 25px;
   }
   
   ul {
@@ -59,4 +72,65 @@ nav {
   }
   
   
+  .secretgardenTitle {
+    background-color: rgb(6, 9, 8); /* Adiciona uma transparência ao fundo */
+    text-align: center;
+    padding: 20px; /* Adicione algum espaço ao redor do título */
+    color: white; /* Muda a cor do texto para branco */
+  }
+
+
+.secretgardenTitle h1 {
+  font-size: 6rem; /* Tamanho maior para o título */
+}
+.imageHome{
+    background-size: cover;
+    display: flex;
+    position: relative;
+    size: 100px;
+    overflow-y:hidden;
+    max-width: 100%; /* Define o tamanho máximo como 100% da largura do contêiner pai */
+  
+  }
+
+  .description {
+    font-size: 1.2rem; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    margin: 10px 0; /* Margem acima e abaixo do parágrafo */
+    text-align: center; /* Alinhar o texto ao centro */
+  }
+  
+
+  
+  
+  
+  .image {
+    text-align: center;
+    position: relative;
+     /* Para centralizar a imagem horizontalmente */
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  img {
+    max-width: 20%; /* Ajusta o tamanho da imagem para caber no contêiner */
+   /* Mantém a proporção da imagem */
+    margin: 20px;
+  }
+  
+
+  .howtoUse{
+    padding: 10px;
+    text-align: center;
+  }
+
   

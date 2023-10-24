@@ -1,23 +1,19 @@
-/* Dashboard.css */
-
 .dashboard-container {
   max-width: 800px;
-  max-height: 800px;
   margin: 40px auto;
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9d8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow-y: scroll;
+  overflow-y: auto; /* Adicione uma barra de rolagem vertical se necessário */
 }
+
 
   
   .dashboard-container h1 {
     font-size: 28px; /* Tamanho maior */
     margin-bottom: 30px; /* Espaçamento adicional na parte inferior */
     color: #007bff; /* Cor do título */
-    
   }
   
   .dashboard-container input[type="text"],
@@ -52,12 +48,14 @@
     list-style: none;
     padding: 0;
     
+    
   }
   
   .dashboard-container li {
     display: flex;
     align-items: center;
     margin-bottom: 30px; 
+    
     /* Espaçamento adicional na parte inferior de cada item */
   }
   
@@ -96,11 +94,13 @@
     display: flex;
     align-items: center;
     margin-bottom: 30px; /* Espaçamento adicional na parte inferior de cada item */
+    
   }
   
   .dashboard-container .item-container {
     flex: 1; /* Faz com que o contêiner ocupe uma parte igual do espaço disponível */
     max-width: 200px; /* Define a largura máxima para o contêiner */
+    
   }
   
   
@@ -113,13 +113,15 @@
   
 
   .dashboardBackground {
-    position: fixed; /* Torna a imagem fixa na tela */
+   /* Torna a imagem fixa na tela */
     left: 0;
     width: 100%; /* Largura de 100% da tela */
     height: 100%; /* Altura de 100% da tela */
+    
   }
   
   .h1{
     display: flex;
     text-align: center;
+    
   } 

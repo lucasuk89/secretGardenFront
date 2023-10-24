@@ -7,7 +7,7 @@ function Register() {
 
 
   const backgroundStyle = {
-    backgroundImage: 'url("/images/homeImage.png")', // Substitua pelo caminho real da sua imagem
+    backgroundImage: 'url("../../../public/leafs.png")', // Substitua pelo caminho real da sua imagem
     backgroundSize: 'cover', // Torna a imagem de fundo responsiva
     backgroundRepeat: 'no-repeat',
   };
@@ -74,7 +74,32 @@ return (
 
         <input type="submit" value="Register" />
       </form>
-    </div></div>
+    </div>
+    
+    <footer className="footer">
+        <div className="footer-section homeBackgroundRed">
+          <div className="section-content">
+            <h2>Make your Register</h2>
+            <p>To create your account</p>
+          </div>
+        </div>
+
+        <div className="footer-section homeBackgroundBlue">
+          <div className="section-content">
+            <h3>Make your Login</h3>
+            <p>You will have your user with your datas.</p>
+          </div>
+        </div>
+
+        <div className="footer-section homeBackgroundYellow">
+          <div className="section-content">
+            <h3>Save Your Books</h3>
+            <p>Names, Authors and Make a comment...</p>
+          </div>
+        </div>
+      </footer>
+    
+    </div>
   );
 }
 

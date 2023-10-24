@@ -30,14 +30,34 @@ function App() {
               ) : (
                 <li><Link to="/login">Sign in</Link></li>
               )}
-              
             </ul>
           </nav>
         </div>
 
+        <div>
+          <div className='secretgardenTitle'>
+            <h1 className='welcomeTitle'>Welcome to the Secret Garden</h1>
+          </div>
+          <p className='description'>Created by Lucas F.M</p>
+          <h1>A great time to save your memories...or...</h1>
+          <p>At the Secret Garden, you can store book titles and authors, as well as craft eerie narratives about your most mysterious and chilling secrets...</p>
+        </div>
+        
+        <div className="containerImgandTitle">
+       
+        <div className="image">
+          <img src="../public/fairyTale.jpeg" alt="Imagem" />
+          <img src="../public/it.jpeg" alt="Imagem" />
+          <img src="../public/holy.jpeg" alt="Imagem" />
+          <img src="../public/billySummers.jpeg" alt="Imagem" />
+        </div>
+      </div>
+
+
+
         <Routes>
-        <Route path="/" element={<Home />} />   
-          <Route path="/home" element={<Home />} />   
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
