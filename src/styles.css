@@ -133,4 +133,14 @@ nav {
     text-align: center;
   }
 
+  .nav-list {
+    padding: 25px;
+    background-color: #333;
+    color: white;
+    list-style: none;
+  }
+  
+  .user-dropdown {
+    float: right;
+  }
   
