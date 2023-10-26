@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './Dashboard.css';
+import Cookies from 'js-cookie';
 
 function Dashboard() {
   const backgroundStyle = {
@@ -22,6 +23,7 @@ function Dashboard() {
   const handleAddItem = async () => {
     if (itemName && itemAuthor && itemDescription) {
       const user = JSON.parse(localStorage.getItem('user'));
+     // const username = Cookies.get('username');
       const newItem = {
         name: itemName,
         author: itemAuthor,
@@ -37,6 +39,13 @@ function Dashboard() {
       setItems([...items, newItem]);
     }
   };
+
+
+  /*const handleLogin = async () => {
+    const usernameInput = document.getElementById('username-input'); // Suponha que você tenha um campo de entrada com o ID 'username-input'
+    const username = usernameInput.value; // Obtenha o valor do campo de entrada
+    Cookies.set('username', username, { expires: 7 });
+  };*/
 
   const handleEditItem = async () => {
     if (editIndex !== null) {
@@ -87,7 +96,7 @@ function Dashboard() {
         setEditIndex(null);
       }
     }
-  };
+  }
 
   const selectItem = (index) => {
     setEditIndex(index);

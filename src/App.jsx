@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { NavDropdown } from 'react-bootstrap';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -34,17 +34,19 @@ function App() {
             <li><Link to="/register">Register</Link></li>
             {isLoggedIn ? (
               <>
-                {user && user.name && <li className="user-dropdown">
-                  <NavDropdown title={`Welcome, ${user.name}`}>
-                    <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
-                  </NavDropdown>
-                </li>}
                 <li><Link to="/dashboard">Dashboard</Link></li>
                 <li onClick={handleLogout}><Link to="/login">Logout</Link></li>
               </>
             ) : (
               <li><Link to="/login">Sign in</Link></li>
             )}
+            <li className="user-dropdown">
+              {user && isLoggedIn && (
+                <NavDropdown title={`Welcome, ${user.name}`}>
+                  <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+                </NavDropdown>
+              )}
+            </li>
           </ul>
         </nav>
 
@@ -69,7 +71,10 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/dashboard" element={<Dashboard user={user} />} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard user={user} />} // Passe o objeto do usuário como uma prop
+          />
         </Routes>
       </Router>
     </div>

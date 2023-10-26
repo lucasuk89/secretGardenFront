@@ -1,11 +1,16 @@
-/* Adicione este CSS para estilizar o rodapé responsivo */
-
+/*Footer : We've made the elements in the footer class 
+use the flexbox layout to organize their children.
+Justifu-content : To align the children horizontally with uniform spacing between them.
+And also an internal 20px padding around the elements with the footer class.*/
 .footer {
     display: flex;
     justify-content: space-around;
     padding: 20px;
   }
   
+  /*Flex 1 : so that the elements of the 
+  footer-section distribute the space equally 
+  within the footer element that contains them.*/
   .footer-section {
     flex: 1;
     padding: 10px;
@@ -14,12 +19,17 @@
     margin: 10px;
   }
   
+  /*Centralizes the text of these elements*/
   .section-content {
     text-align: center;
   }
   
-  /* Media queries para tornar o layout responsivo */
-  
+
+  /*Within a @media rule for screens smaller than or equal to 768 pixels,
+   the .footer class changes to a column layout
+    and the .footer-section class is given a smaller margin.
+Three classes - .homeBackgroundRed, .homeBackgroundBlue and .homeBackgroundYellow 
+- define different background colors for elements with these classes.*/
   @media (max-width: 768px) {
     .footer {
       flex-direction: column;
@@ -30,7 +40,6 @@
     }
   }
   
-
   .homeBackgroundRed{
     background-color: rgb(224, 79, 79);
   }

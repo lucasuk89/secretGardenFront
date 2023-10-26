@@ -1,19 +1,24 @@
+//The imports I've made so that you can use the tools below.
 import React from 'react';
 import './Home-style.css';
 
+
+/*Define an image that is located inside the public folder
+ to be the background of the Login/Register session part 
+and the dashboard as well. It barely appears on the home page. */
 const backgroundStyle = {
   backgroundImage: 'url("../../../public/leafs.png")',
   height: '100%',
   width: '100%',
-
 };
 
+/*Here we created a div with an image to cover the entire screen,
+ a title with H3 and also a footer with 3 different sections with
+  a title and description of how The Secret Garden works. */
 function Home() {
   return (
     <div style={backgroundStyle}>
       <h3 className='howtoUse'>How to use the SecretGarden?</h3>
-
-
       <footer className="footer ">
         <div className="footer-section homeBackgroundRed">
           <div className="section-content">
@@ -37,8 +42,8 @@ function Home() {
         </div>
       </footer>
     </div>
-    
   );
 }
 
+//The React component called HOME was created to export the element.
 export default Home;
