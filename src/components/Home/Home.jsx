@@ -2,10 +2,8 @@
 import React from 'react';
 import './Home-style.css';
 
-
-/*Define an image that is located inside the public folder
- to be the background of the Login/Register session part 
-and the dashboard as well. It barely appears on the home page. */
+/*I chose an image to be the background in Login/Registration/Home.
+ This image hardly appears on the home page. */
 const backgroundStyle = {
   backgroundImage: 'url("../../../public/leafs.png")',
   height: '100%',

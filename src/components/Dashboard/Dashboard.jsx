@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './Dashboard.css';
-import Cookies from 'js-cookie';
+
 
 function Dashboard() {
   const backgroundStyle = {
