@@ -111,14 +111,13 @@ function App() {
               <Login
                 isLoggedIn={isLoggedIn}
                 setIsLoggedIn={setIsLoggedIn}
-                user={user}
                 setUser={setUser}
               />
             }
           />
           <Route
             path='/dashboard'
-            element={<Dashboard isLoggedIn={isLoggedIn}/>} // Passe o objeto do usuário como uma prop
+            element={<Dashboard/>} // Passe o objeto do usuário como uma prop
           />
         </Routes>
       </Router>

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
-function Dashboard({ isLoggedIn,user }) {
+function Dashboard() {
   const backgroundStyle = {
     backgroundImage: 'url("../../../public/leafs.png")',
     backgroundSize: 'cover',
