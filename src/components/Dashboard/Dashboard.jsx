@@ -1,14 +1,17 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
-
-function Dashboard() {
+function Dashboard({ isLoggedIn,user }) {
   const backgroundStyle = {
     backgroundImage: 'url("../../../public/leafs.png")',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
   };
+
+  const navigate = useNavigate();
 
   const [items, setItems] = useState([]);
   const [itemName, setItemName] = useState('');
@@ -17,12 +20,20 @@ function Dashboard() {
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
 
   useEffect(() => {
-    recoverUserItems();
+    checkUserLogin();
   }, []);
 
-  const handleAddItem = async () => {
+  function checkUserLogin() {
+    if (Cookies.get('isLoggedIn')) {
+        recoverUserItems();
+    } else {
+      navigate('/login');
+    }
+  }
+
+  async function handleAddItem() {
     if (itemName && itemAuthor && itemDescription) {
-      const user = JSON.parse(localStorage.getItem('user'));
+      const user = Cookies.get('user') ? JSON.parse(Cookies.get('user')) : null;
       const newItem = {
         name: itemName,
         author: itemAuthor,
@@ -36,7 +47,7 @@ function Dashboard() {
       newItem.id = id;
       setItems([...items, newItem]);
     }
-  };
+  }
 
   const handleEditItem = async () => {
     if (selectedItemIndex !== null) {
@@ -61,11 +72,17 @@ function Dashboard() {
     return await axios
       .post('http://localhost:3000/api/dashboard/items', newItem)
       .then((response) => {
-        console.log('Dados do formulário enviados com sucesso para o servidor:', response.data);
+        console.log(
+          'Dados do formulário enviados com sucesso para o servidor:',
+          response.data
+        );
         return response.data.id;
       })
       .catch((error) => {
-        console.error('Erro ao enviar dados do formulário para o servidor:', error);
+        console.error(
+          'Erro ao enviar dados do formulário para o servidor:',
+          error
+        );
       });
   }
 
@@ -83,15 +100,15 @@ function Dashboard() {
     }
   }
 
-  const selectItem = (index) => {
+  function selectItem(index) {
     setSelectedItemIndex(index);
     setItemName(items[index].name);
     setItemAuthor(items[index].author);
     setItemDescription(items[index].description);
-  };
+  }
 
   async function recoverUserItems() {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = Cookies.get('user') ? JSON.parse(Cookies.get('user')) : null;
     await axios
       .get(`http://localhost:3000/api/dashboard/items/${user.id}`)
       .then((response) => {
